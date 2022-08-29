@@ -1,0 +1,6 @@
+pytelegrambotapi
+requests
+bs4
+firbase-admin
+flask
+gunicorn
