@@ -1,6 +1,6 @@
 pytelegrambotapi
 requests
 bs4
-firbase-admin
+firebase-admin
 flask
 gunicorn
