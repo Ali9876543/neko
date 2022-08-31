@@ -1,6 +1,11 @@
 import telebot
 from telebot import types
 import requests, bs4
+import flask
+import os
+
+server = flask.Flask(__name__)
+app_name = 'tehno-bot'
 
 token = '5420194922:AAE9hM8lI--kdQs8JDrf2UvhslzEIQNuZXk'
 bot = telebot.TeleBot(token)
