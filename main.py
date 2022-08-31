@@ -7,7 +7,7 @@ import os
 server = flask.Flask(__name__)
 app_name = 'tehno-bot'
 
-token = '5420194922:AAE9hM8lI--kdQs8JDrf2UvhslzEIQNuZXk'
+token = '5506736332:AAG0PX4HqVhY1mvvF6nVKGjN8u2fwI1P2P8'
 bot = telebot.TeleBot(token)
 
 
