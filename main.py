@@ -32,7 +32,7 @@ def brands(message):
         brand = 'f/brands/oppo'
     m = bot.send_message(message.chat.id, 'Введи ценовой диапазон через тире. Пример, 200000-500000')
     bot.register_next_step_handler(m, prices)
-    
+
 def prices(message):
     global brand
     price = message.text.split('-')
@@ -44,6 +44,19 @@ def prices(message):
         href = li.get('href')
         bot.send_message(message.chat.id, 'https://technodom.kz'+href)
 
-bot.polling()
+@server.route('/' + token, methods=['POST'])
+def get_message():
+     bot.process_new_updates([types.Update.de_json(flask.request.stream.read().decode("utf-8"))])
+     return "!", 200
 
-    
+@server.route('/', methods=["GET"])
+def index():
+     print("hello webhook!")
+     bot.remove_webhook()
+     bot.set_webhook(url=f"https://{app_name}.herokuapp.com/{token}")
+     return "Hello from Heroku!", 200
+   
+
+if __name__ == "__main__":
+     print("started")
+     server.run(host="0.0.0.0", port=int(os.environ.get('PORT', 5000)))
